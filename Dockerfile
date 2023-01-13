@@ -7,4 +7,4 @@ RUN pip install -r /app/requirements.txt
 COPY ./src/app.py /app/app.py
 COPY ./src/templates/index.html /app/templates/
 ENV FLASK_APP=app.py
-CMD flask run -h 0.0.0 -p 5000
+CMD flask run -h 0.0.0.0 -p 5000
