@@ -133,15 +133,20 @@ table.body .article {
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
 
                         <!-- START API AREA -->
+
+                        <p>Select one or more values.</p>
+
                         <form method="post" action="{{url_for('get_user')}}">
-                          <input type="text" placeholder="UserId" name="userId"/>
-                          <button type="submit">Get User</button>
+                        <label for="options">Choose a value:</label>
+                        <select id="options" name="keyname" size="4" multiple>
+                        <option value="option1">Option1</option>
+                        <option value="option2">Option2</option>
+                        <option value="option3">Option3</option>
+                        <option value="option4">Option4</option>
+                        </select><br><br>
+                        <input type="submit">
                         </form>
-                        <br>
-                        <form method="post" action="{{url_for('add_user')}}">
-                          <input type="text" placeholder="UserId" name="userId"/>
-                          <button type="submit">Add User</button>
-                        </form>
+
                         <!-- END API AREA -->
 
                       </td>
