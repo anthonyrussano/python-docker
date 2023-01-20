@@ -1,10 +1,8 @@
-FROM python:3.11.1-alpine3.17 as dev
-WORKDIR /work
-FROM dev as runtime
+FROM python:3.11.1-alpine3.17
 WORKDIR /app
-COPY ./src/requirements.txt /app/
-RUN pip install -r /app/requirements.txt
+COPY ./src/Pipfile ./src/Pipfile.lock /app/
+RUN pip install pipenv && pipenv install --ignore-pipfile
 COPY ./src/app.py /app/app.py
 COPY ./src/templates/index.html /app/templates/
 ENV FLASK_APP=app.py
-CMD flask run -h 0.0.0.0 -p 5000
+CMD pipenv run flask run -h 0.0.0.0 -p 5000
